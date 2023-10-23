@@ -13,6 +13,6 @@ class OpenFoodApi:
             password=None,
             country=Country.world,
             flavor=Flavor.off,
-            version=APIVersion.v3,
+            version=APIVersion.v2,
             environment=Environment.org,
     )

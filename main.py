@@ -14,13 +14,14 @@ def read_root():
 def read_item(item_id: int, q: Union[str, None] = None):
     return {"item_id": item_id, "q": q}
 
-@app.get("/products")
-def read_product():
+@app.get("/products/{token}")
+def read_product(token : int, q: Union[str, None] = None):
     api = OpenFoodApi().api
-    product = api.product.get("3017620422003")
+    product = api.product.get(token)
     return {
-        "abbreviated_product_name_fr": product['product']['abbreviated_product_name_fr'],
-        "brands": product['product']['brands'],
-        "images": product['product']['selected_images']['front'],
-        "eco": product['product']['ecoscore_data']
+        "abbreviated_product_name_fr": product['product'].get('abbreviated_product_name_fr'),
+        "generic_name": product['product'].get('generic_name'),
+        "brands": product['product'].get('brands'),
+        "images": product['product']['selected_images'].get('front'),
+        "eco": product['product'].get('ecoscore_data')
     }
