@@ -1,0 +1,3 @@
+fastapi
+openfoodfacts
+uvicorn[standard]
