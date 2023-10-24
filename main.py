@@ -20,7 +20,7 @@ def read_product(token : int, q: Union[str, None] = None):
     product = api.product.get(token)
     return {
         "abbreviated_product_name_fr": product['product'].get('abbreviated_product_name_fr'),
-        "generic_name": product['product'].get('generic_name'),
+        "generic_name": product['product'].get('product_name'),
         "brands": product['product'].get('brands'),
         "images": product['product']['selected_images'].get('front'),
         "eco": product['product'].get('ecoscore_data')
